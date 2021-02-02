@@ -14,7 +14,47 @@ const modal = {
 }
 
 const transactions = [
+    {
+        id: 1,
+        description: 'Luz',
+        amount: -50000,
+        date: "23/01/2021"
+    }
 ]
+
+const Transaction = {
+    all: transactions,
+
+    add(transaction){
+        Transaction.all.push(transaction)
+
+        console.log(Transaction.all)
+    },
+
+    incomes() {
+        let income = 0;
+        Transaction.all.forEach(transaction => {
+            if( transaction.amount > 0 ) {
+                income += transaction.amount;
+            }
+        })
+        return income
+    },
+
+    expenses() {
+        let expense = 0;
+        Transaction.all.forEach(transaction => {
+            if( transaction.amount > 0 ) {
+                income += transaction.amount;
+            }
+        })
+        return expense
+    },
+
+    total() {
+        return Transaction.incomes() + Transaction.expenses();
+    }
+}
 
 const DOM = {
     transactionsContainer: document.querySelector('#data-tabletbody'),
@@ -22,7 +62,7 @@ const DOM = {
         transaction.innerHTML = DOM.innerHTMLTransaction()
 
         DOM.transactionsContainer.appendChild(tr)
-    }
+    },
 
     innerHTMLTransaction(transaction) {
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
@@ -43,10 +83,15 @@ const DOM = {
     updateBalance () {
         document
             .getElementById('incomeDisplay')
-            .innerHTML = "soma das entradas"
+            .innerHTML = Utils.formatCurrency(Transaction.incomes())
+        document
+            .getElementById('expenseDisplay')
+            .innerHTML = Utils.formatCurrency(Transaction.expenses())
+        document
+            .getElementById('totalDisplay')
+            .innerHTML = Utils.formatCurrency(Transaction.total())
     }
 }
-
 
 const Utils = {
     formatCurrency(value) {
@@ -64,19 +109,12 @@ const Utils = {
     }
 }
 
+const App = {
+    init() {},
+    reload() {},
+}
+
 transactions.forEach(function(transaction){
     DOM.addTransaction(transaction)
 })
 
-
-const Transaction = {
-    incomes() {
-
-    },
-    expenses() {
-
-    },
-    total() {
-
-    }
-}
