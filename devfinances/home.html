@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <img src="/img/logo.svg" alt="Logo Dev Finances">
+        <img src="/devfinances/img/logo.svg" alt="Logo Dev Finances">
     </header>
 
     <main class="container">
@@ -23,21 +23,21 @@
             <div class="card">
                 <h3>
                     <span>Entradas</span>
-                    <img src="/img/income.svg" alt="Imagem de Entradas">
+                    <img src="/devfinances/img/income.svg" alt="Imagem de Entradas">
                 </h3>
                 <p id="incomeDisplay">R$ 0.000,00</p>
             </div>
             <div class="card">
                 <h3>
                     <span>Saídas</span>
-                    <img src="/img/expense.svg" alt="Imagem de Saídas">
+                    <img src="/devfinances/img/expense.svg" alt="Imagem de Saídas">
                 </h3>
                 <p id="expenseDisplay">R$ 0.000,00</p>
             </div>
             <div class="card total">
                 <h3>
                     <span>Total</span>
-                    <img src="/img/total.svg" alt="Imagem de Total">
+                    <img src="/devfinances/img/total.svg" alt="Imagem de Total">
                 </h3>
                 <p id="totalDisplay">R$ 0.000,00</p>
             </div>
@@ -68,7 +68,7 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
                     <div class="input-group">
                         <label class="sr-only" for="description">Descrição</label>
                         <input type="text" id="description" name="description" placeholder="Descrição"/>
