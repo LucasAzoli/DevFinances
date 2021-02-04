@@ -65,7 +65,7 @@ const Transaction = {
     total () {
         return Transaction.incomes() + Transaction.expenses();
     }
-}
+}   
 
 const DOM = {
     transactionsContainer: document.querySelector('#data-table tbody'),
